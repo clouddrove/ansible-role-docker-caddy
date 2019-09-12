@@ -1,0 +1,10 @@
+---
+
+# Caddy variable
+caddy_version: "0.11.1"
+
+# Caddy settings
+caddy_config_dir: "/opt/caddy/config"
+
+caddy_user: caddy
+caddy_group: caddy

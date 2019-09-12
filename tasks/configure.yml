@@ -1,0 +1,19 @@
+---
+
+- name: transfer ssl crt configuration
+  template:
+    src: "{{ item }}"
+    dest: "{{ jenkins_config_dir }}/{{ item | basename }}"
+    force: true
+    mode: 0644
+  with_fileglob:
+    - ./../../../_ssl/*.clouddrove.com/*.crt
+
+- name: transfer ssl pem configuration
+  template:
+    src: "{{ item }}"
+    dest: "{{ jenkins_config_dir }}/{{ item | basename }}"
+    force: true
+    mode: 0644
+  with_fileglob:
+    - ./../../../_ssl/*.clouddrove.com/*-key.pem

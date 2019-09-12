@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -eux -o pipefail
+
+# pull the image before so we dont first remove the container and then pull
+docker pull abiosoft/caddy:{{ caddy_version }}
+
+docker rm -f -v caddy || :
+
+docker run -u root --net=host --rm --name caddy \
+   -v "{{ caddy_config_dir }}":/root/config \
+   -v "{{ caddy_config_dir }}/.caddy":/root/.caddy \
+   -v "{{ caddy_config_dir }}/Caddyfile":/etc/Caddyfile \
+     abiosoft/caddy:{{ caddy_version }}

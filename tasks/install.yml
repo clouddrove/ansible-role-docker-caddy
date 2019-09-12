@@ -1,0 +1,34 @@
+---
+
+- name: copy caddy script
+  template:
+    src: "caddy"
+    dest: /usr/local/bin/caddy
+    mode: 0755
+    owner: root
+    group: root
+
+- name: copy caddy service
+  template:
+    src: "caddy.service"
+    dest: /etc/systemd/system/caddy.service
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - restart caddy
+
+- name: ensure caddy service is restarted
+  service:
+    name: caddy
+    state: restarted
+  changed_when: false
+
+- name: wait for caddy to become ready
+  wait_for:
+    host: "0.0.0.0"
+    port: "80"
+    state: started
+    delay: 5
+    connect_timeout: 15
+    timeout: 3000

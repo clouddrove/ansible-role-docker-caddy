@@ -1,0 +1,13 @@
+[Unit]
+Description=Caddy Server
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/local/bin/caddy
+ExecStop=-/usr/bin/docker rm -f -v caddy
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+---
+
+- name: setup group
+  group:
+    name: "{{ caddy_group }}"
+    system: false
+
+- name: setup user
+  user:
+    name: "{{ caddy_user }}"
+    system: false
+    group: "{{ caddy_group }}"
