@@ -94,7 +94,7 @@ Followiing things includes in this role:
 ## Variables
 
 ```yaml
-  caddy_version: "0.11.1"
+  caddy_version: "1.0.3"
   caddy_config_dir: "/opt/caddy/config"
   caddy_user: caddy
   caddy_group: caddy
