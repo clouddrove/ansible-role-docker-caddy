@@ -5,6 +5,7 @@ caddy_version: "1.0.3"
 
 # Caddy settings
 caddy_config_dir: "/opt/caddy/config"
+caddyfile_path: "/opt/jenkins/config"
 
 caddy_user: caddy
 caddy_group: caddy

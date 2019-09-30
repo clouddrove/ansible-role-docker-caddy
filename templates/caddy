@@ -10,5 +10,5 @@ docker rm -f -v caddy || :
 docker run -u root --net=host --rm --name caddy \
    -v "{{ caddy_config_dir }}":/root/config \
    -v "{{ caddy_config_dir }}/.caddy":/root/.caddy \
-   -v "{{ caddy_config_dir }}/Caddyfile":/etc/Caddyfile \
+   -v "{{ caddyfile_path }}/Caddyfile":/etc/Caddyfile \
      abiosoft/caddy:{{ caddy_version }}
