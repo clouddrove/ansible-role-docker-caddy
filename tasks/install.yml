@@ -22,6 +22,7 @@
   service:
     name: caddy
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: wait for caddy to become ready
