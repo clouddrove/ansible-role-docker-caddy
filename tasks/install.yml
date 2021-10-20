@@ -8,6 +8,14 @@
     owner: root
     group: root
 
+- name: copy caddy-fix bash script
+  template:
+    src: "caddy-fix.sh"
+    dest: /opt/
+    mode: 0755
+    owner: root
+    group: root
+
 - name: copy caddy service
   template:
     src: "caddy.service"

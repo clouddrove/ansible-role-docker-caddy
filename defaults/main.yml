@@ -9,3 +9,9 @@ caddyfile_path: "/opt/jenkins/config"
 
 caddy_user: caddy
 caddy_group: caddy
+
+# Crontab User
+cron_user: root
+
+# Today's date for SSL Renewal (it will be execute after 89 days from today's date)
+date: 2021/10/20
