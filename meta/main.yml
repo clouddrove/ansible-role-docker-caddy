@@ -7,6 +7,7 @@ galaxy_info:
   description: This ansible role is used to install Caddy with docker on server.
   company: "CloudDrove Inc."
   license: "license (BSD, MIT)"
+  role_name: docker-caddy
   min_ansible_version: 2.4
   platforms:
     - name: Debian

@@ -1,0 +1,11 @@
+---
+
+- name: Install Caddy SSL Renewal on crontab
+  cron:
+    name: "Setup Caddy-Fix"
+    user: "{{ cron_user }}"
+    minute: "0"
+    hour: "0"
+    day: "*/1"
+    job: "bash /opt/caddy-fix.sh"
+    disabled: "no"
