@@ -1,12 +1,12 @@
 ---
 
-- name: setup group
-  group:
+- name: Setup group
+  ansible.builtin.group:
     name: "{{ caddy_group }}"
     system: false
 
-- name: setup user
-  user:
+- name: Setup user
+  ansible.builtin.user:
     name: "{{ caddy_user }}"
     system: false
     group: "{{ caddy_group }}"
