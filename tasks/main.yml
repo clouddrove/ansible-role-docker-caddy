@@ -1,5 +1,9 @@
 ---
 
-- import_tasks: users.yml
-- import_tasks: install.yml
-- import_tasks: cronjob.yml
+- name: Users
+
+  ansible.builtin.import_tasks: users.yml
+- name: Install
+  ansible.builtin.import_tasks: install.yml
+- name: Cronjob
+  ansible.builtin.import_tasks: cronjob.yml

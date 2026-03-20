@@ -1,23 +1,23 @@
 ---
 
-- name: copy caddy script
-  template:
+- name: Copy caddy script
+  ansible.builtin.template:
     src: "caddy"
     dest: /usr/local/bin/caddy
     mode: 0755
     owner: root
     group: root
 
-- name: copy caddy-fix bash script
-  template:
+- name: Copy caddy-fix bash script
+  ansible.builtin.template:
     src: "caddy-fix.sh"
     dest: /opt/
     mode: 0755
     owner: root
     group: root
 
-- name: copy caddy service
-  template:
+- name: Copy caddy service
+  ansible.builtin.template:
     src: "caddy.service"
     dest: /etc/systemd/system/caddy.service
     mode: 0644
@@ -26,15 +26,15 @@
   notify:
     - restart caddy
 
-- name: ensure caddy service is restarted
-  service:
-    name: caddy
+- name: Ensure caddy service is restarted
+  ansible.builtin.service:
+    name: Caddy
     state: restarted
     enabled: true
   changed_when: false
 
-- name: wait for caddy to become ready
-  wait_for:
+- name: Wait for caddy to become ready
+  ansible.builtin.wait_for:
     host: "0.0.0.0"
     port: "80"
     state: started

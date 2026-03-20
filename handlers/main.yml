@@ -1,17 +1,17 @@
 ---
 
-- name: restart caddy
-  service:
-    name: caddy
+- name: Restart caddy
+  ansible.builtin.service:
+    name: Caddy
     state: restarted
     enabled: true
 
-- name: reload caddy
-  systemd:
-    name: caddy
+- name: Reload caddy
+  ansible.builtin.systemd:
+    name: Caddy
     state: reloaded
 
-- name: start caddy
-  systemd:
-    name: caddy
+- name: Start caddy
+  ansible.builtin.systemd:
+    name: Caddy
     state: started
